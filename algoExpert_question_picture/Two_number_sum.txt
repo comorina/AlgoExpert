@@ -1,0 +1,48 @@
+Solution 1: 
+
+def twoNumberSum(array, targetSum):
+	if(len(array) == 0):
+		return
+	for i in range(0,len(array)):
+		for j in range(i+1,len(array)):
+			if array[i]+array[j] == targetSum:
+				return [array[i], array[j]]
+	return[]
+	
+
+-------------------------------------------------------------------------
+
+Solution 2: 
+
+
+def twoNumberSum(array, targetSum):
+    # Write your code here.
+	nums = {}
+    for i in array:
+		if targetSum-i in nums:
+			return [targetSum-i, i]
+		else:
+			nums[i] = True
+	return []
+
+----------------------------------------------------------------------------
+
+Solution 3:-
+
+def twoNumberSum(array, targetSum):
+    # Write your code here.
+	array.sort()
+	left=0
+	right = len(array)-1
+	while (left<right):
+		curr = array[left]+array[right]
+		if curr == targetSum:
+			return [array[left], array[right]]
+		elif curr >targetSum:
+			right = right-1
+		elif curr < targetSum:
+			left = left+1
+	return []
+
+
+------------------------------------------------------------------------------
